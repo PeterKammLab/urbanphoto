@@ -46,17 +46,21 @@
             margin-right: auto;
         }
         .city-selection button {
-            display: inline-block; /* Inline buttons for same-line display */
-            margin: 5px 10px 5px 0; /* Adjust spacing between buttons */
-            padding: 15px 30px; /* Larger padding for better appearance */
-            font-size: 1.2em; /* Increased font size */
-            background: #333;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px; /* Rounded edges */
-            transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
-        }
+	    display: inline-block; /* Inline buttons for same-line display */
+	    margin: 5px 10px 5px 0; /* Adjust spacing between buttons */
+	    padding: 15px; /* Consistent padding inside the buttons */
+	    font-size: 1.2em; /* Font size */
+	    width: 150px; /* Fixed button width for consistency */
+	    height: 50px; /* Fixed button height for uniformity */
+	    background: #333;
+	    color: #fff;
+	    border: none;
+	    cursor: pointer;
+	    border-radius: 5px; /* Rounded edges */
+	    text-align: center; /* Center align the text */
+	    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+	}
+
         .city-selection button:hover {
             transform: scale(1.1); /* Slight zoom effect */
             background: #555;
