@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urban Landscapes - Petar Koljensic</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: "Helvetica", Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+        .container {
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .profile-picture {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            margin: 0 auto 20px;
+        }
+        .text-section {
+            text-align: left;
+            margin: 0 auto;
+            max-width: 800px;
+        }
+        .text-section h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: rgba(255, 255, 255, 0.9); /* Slight transparency */
+        }
+        .text-section p {
+            font-size: 1em; /* Reduced font size */
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.7); /* Slight transparency */
+        }
+        .city-selection {
+            margin-top: 30px;
+            text-align: left; /* Align content to the left */
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .city-selection button {
+            display: inline-block; /* Inline buttons for same-line display */
+            margin: 5px 10px 5px 0; /* Adjust spacing between buttons */
+            padding: 15px 30px; /* Larger padding for better appearance */
+            font-size: 1.2em; /* Increased font size */
+            background: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px; /* Rounded edges */
+            transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+        }
+        .city-selection button:hover {
+            transform: scale(1.1); /* Slight zoom effect */
+            background: #555;
+        }
+        .city-selection button.active {
+            color: rgba(0, 0, 0, 0.8); /* Light black text color */
+			background: #fffcfc; /* Light button color */
+			border: 2px solid rgba(0, 0, 0, 0.8); /* Optional: add a subtle border */
+        }
+        .gallery-section {
+            display: none;
+            margin-top: 30px;
+        }
+        .gallery-section.active {
+            display: block;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        .gallery img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            cursor: pointer;
+        }
+        /* Fullscreen slider */
+        .slider {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+        }
+        .slider.active {
+            display: flex;
+        }
+        .slider img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+        .slider .prev,
+        .slider .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.5);
+            color: #000;
+            border: none;
+            font-size: 2em;
+            cursor: pointer;
+            padding: 10px;
+        }
+        .slider .prev {
+            left: 10px;
+        }
+        .slider .next {
+            right: 10px;
+        }
+        .slider .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255, 255, 255, 0.7);
+            color: #000;
+            border: none;
+            font-size: 1.5em;
+            cursor: pointer;
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://i.postimg.cc/SxZ7PYLv/Portrait-16.jpg" alt="Petar Koljensic" class="profile-picture">
+        <div class="text-section">
+            <h1>Petar Koljensic</h1>
+            <p>
+                I'm an urban planner who loves photography. Wherever I travel, 
+				I take my little camera to make shots of buildings, architecture, 
+				squares, places, streets, things, and people. My idea is to capture the theory, physic, and spirit of cities. 
+            </p>
+        </div>
+        <div class="city-selection">
+            <button data-city="hamburg">Hamburg</button>
+            <button data-city="brussels">Brussels</button>
+            <button data-city="vienna">Vienna</button>
+        </div>
+        <div class="gallery-section" id="hamburg-gallery">
+			<div class="gallery">
+				<img src="https://i.postimg.cc/nrHG54WN/hh23-1-von-29.jpg" alt="Hamburg 1">
+				<img src="https://i.postimg.cc/4N2QLhQF/hh23-2-von-29.jpg" alt="Hamburg 2">
+				<img src="https://i.postimg.cc/fR3j6THW/hh23-3-von-29.jpg" alt="Hamburg 3">
+				<img src="https://i.postimg.cc/5933zrYJ/hh23-4-von-29.jpg" alt="Hamburg 4">
+				<img src="https://i.postimg.cc/28Sx7xhZ/hh23-5-von-29.jpg" alt="Hamburg 5">
+				<img src="https://i.postimg.cc/KzbPk7m4/hh23-6-von-29.jpg" alt="Hamburg 6">
+				<img src="https://i.postimg.cc/CKkCxrTW/hh23-7-von-29.jpg" alt="Hamburg 7">
+				<img src="https://i.postimg.cc/DZcqqWz6/hh23-8-von-29.jpg" alt="Hamburg 8">
+				<img src="https://i.postimg.cc/kGXWwn6m/hh23-9-von-29.jpg" alt="Hamburg 9">
+				<img src="https://i.postimg.cc/VvGnV3nb/hh23-10-von-29.jpg" alt="Hamburg 10">
+				<img src="https://i.postimg.cc/HWBwn7Rs/hh23-11-von-29.jpg" alt="Hamburg 11">
+				<img src="https://i.postimg.cc/xT8Kz1VG/hh23-12-von-29.jpg" alt="Hamburg 12">
+				<img src="https://i.postimg.cc/28tnFNCs/hh23-13-von-29.jpg" alt="Hamburg 13">
+				<img src="https://i.postimg.cc/R07fB3wm/hh23-14-von-29.jpg" alt="Hamburg 14">
+				<img src="https://i.postimg.cc/JzBZpYnG/hh23-15-von-29.jpg" alt="Hamburg 15">
+				<img src="https://i.postimg.cc/xdDHhGJg/hh23-16-von-29.jpg" alt="Hamburg 16">
+				<img src="https://i.postimg.cc/V6ztLYFC/hh23-17-von-29.jpg" alt="Hamburg 17">
+				<img src="https://i.postimg.cc/RFGHWjPb/hh23-18-von-29.jpg" alt="Hamburg 18">
+				<img src="https://i.postimg.cc/T1459nvV/hh23-19-von-29.jpg" alt="Hamburg 19">
+				<img src="https://i.postimg.cc/Wz3JgXCp/hh23-20-von-29.jpg" alt="Hamburg 20">
+				<img src="https://i.postimg.cc/ryn4M2RD/hh23-21-von-29.jpg" alt="Hamburg 21">
+				<img src="https://i.postimg.cc/fTV9bqYB/hh23-22-von-29.jpg" alt="Hamburg 22">
+				<img src="https://i.postimg.cc/JzJHNy6X/hh23-23-von-29.jpg" alt="Hamburg 23">
+				<img src="https://i.postimg.cc/yNyJGMzY/hh23-26-von-29.jpg" alt="Hamburg 26">
+				<img src="https://i.postimg.cc/509HWsx5/hh23-27-von-29.jpg" alt="Hamburg 27">
+				<img src="https://i.postimg.cc/QM390Xwy/hh23-28-von-29.jpg" alt="Hamburg 28">
+				<img src="https://i.postimg.cc/d1WhsG1b/hh23-29-von-29.jpg" alt="Hamburg 29">
+				<img src="https://i.postimg.cc/nrHG54WN/hh23-1-von-29.jpg" alt="Hamburg 1">
+			</div>
+
+			
+        </div>
+        <div class="gallery-section" id="brussels-gallery">
+			<div class="gallery">
+				<img src="https://i.postimg.cc/Xvj1Gy4j/BE2023-1-von-35.jpg" alt="Image 1">
+				<img src="https://i.postimg.cc/qRY15bnq/BE2023-2-von-35.jpg" alt="Image 2">
+				<img src="https://i.postimg.cc/pTy0kbm3/BE2023-3-von-35.jpg" alt="Image 3">
+				<img src="https://i.postimg.cc/qq31VsXL/BE2023-4-von-35.jpg" alt="Image 4">
+				<img src="https://i.postimg.cc/FKTWjsHj/BE2023-5-von-35.jpg" alt="Image 5">
+				<img src="https://i.postimg.cc/SQ2TM4FM/BE2023-6-von-35.jpg" alt="Image 6">
+				<img src="https://i.postimg.cc/nVydKWpw/BE2023-7-von-35.jpg" alt="Image 7">
+				<img src="https://i.postimg.cc/x1Ythbkv/BE2023-8-von-35.jpg" alt="Image 8">
+				<img src="https://i.postimg.cc/4NpWW134/BE2023-9-von-35.jpg" alt="Image 9">
+				<img src="https://i.postimg.cc/VkRD8LM3/BE2023-10-von-35.jpg" alt="Image 10">
+				<img src="https://i.postimg.cc/q7vQMVxg/BE2023-12-von-35.jpg" alt="Image 12">
+				<img src="https://i.postimg.cc/q7DwNb1w/BE2023-13-von-35.jpg" alt="Image 13">
+				<img src="https://i.postimg.cc/k4VcKQZm/BE2023-15-von-35.jpg" alt="Image 15">
+				<img src="https://i.postimg.cc/50Zm3HdF/BE2023-16-von-35.jpg" alt="Image 16">
+				<img src="https://i.postimg.cc/VvnWHYmZ/BE2023-17-von-35.jpg" alt="Image 17">
+				<img src="https://i.postimg.cc/HWyzLtX0/BE2023-18-von-35.jpg" alt="Image 18">
+				<img src="https://i.postimg.cc/ZKzcvyxG/BE2023-19-von-35.jpg" alt="Image 19">
+				<img src="https://i.postimg.cc/g2YHNF54/BE2023-21-von-35.jpg" alt="Image 21">
+				<img src="https://i.postimg.cc/150KG5Wf/BE2023-23-von-35.jpg" alt="Image 23">
+				<img src="https://i.postimg.cc/L8NBWQFS/BE2023-24-von-35.jpg" alt="Image 24">
+				<img src="https://i.postimg.cc/wBMcY59m/BE2023-25-von-35.jpg" alt="Image 25">
+				<img src="https://i.postimg.cc/DzNQvWzY/BE2023-26-von-35.jpg" alt="Image 26">
+				<img src="https://i.postimg.cc/FRJy79dF/BE2023-27-von-35.jpg" alt="Image 27">
+				<img src="https://i.postimg.cc/x8vL3t3W/BE2023-29-von-35.jpg" alt="Image 29">
+				<img src="https://i.postimg.cc/SRFW9wC6/BE2023-30-von-35.jpg" alt="Image 30">
+				<img src="https://i.postimg.cc/jdTHSYsK/BE2023-33-von-35.jpg" alt="Image 33">
+				<img src="https://i.postimg.cc/vHvW12Bn/BE2023-34-von-35.jpg" alt="Image 34">
+				<img src="https://i.postimg.cc/cL4ff7gb/BE2023-35-von-35.jpg" alt="Image 35">
+			</div>
+
+        </div>
+        <div class="gallery-section" id="vienna-gallery">
+			
+			<div class="gallery">
+				<img src="https://i.postimg.cc/cHQcFxs9/KM-NOSTALGIA-20-von-38.jpg" alt="Image 20">
+				<img src="https://i.postimg.cc/GpTKsP61/KM-NOSTALGIA-21-von-38.jpg" alt="Image 21">
+				<img src="https://i.postimg.cc/fRLBMQKy/KM-NOSTALGIA-22-von-38.jpg" alt="Image 22">
+				<img src="https://i.postimg.cc/KzXN7ky3/KM-NOSTALGIA-23-von-38.jpg" alt="Image 23">
+				<img src="https://i.postimg.cc/Y0MzV50p/KM-NOSTALGIA-24-von-38.jpg" alt="Image 24">
+				<img src="https://i.postimg.cc/VvgWcK0X/KM-NOSTALGIA-25-von-38.jpg" alt="Image 25">
+				<img src="https://i.postimg.cc/ZYxc35s0/KM-NOSTALGIA-26-von-38.jpg" alt="Image 26">
+				<img src="https://i.postimg.cc/28jxxNgG/KM-NOSTALGIA-27-von-38.jpg" alt="Image 27">
+				<img src="https://i.postimg.cc/dtWjHSYY/KM-NOSTALGIA-28-von-38.jpg" alt="Image 28">
+				<img src="https://i.postimg.cc/BnXcdcS1/KM-NOSTALGIA-29-von-38.jpg" alt="Image 29">
+				<img src="https://i.postimg.cc/NjS7Y9FC/KM-NOSTALGIA-30-von-38.jpg" alt="Image 30">
+				<img src="https://i.postimg.cc/LXMtYczz/KM-NOSTALGIA-31-von-38.jpg" alt="Image 31">
+				<img src="https://i.postimg.cc/PqDbqX8X/KM-NOSTALGIA-32-von-38.jpg" alt="Image 32">
+				<img src="https://i.postimg.cc/DZdqqxgR/KM-NOSTALGIA-33-von-38.jpg" alt="Image 33">
+				<img src="https://i.postimg.cc/NGD6FPLH/KM-NOSTALGIA-34-von-38.jpg" alt="Image 34">
+				<img src="https://i.postimg.cc/hvDVMVZv/KM-NOSTALGIA-35-von-38.jpg" alt="Image 35">
+				<img src="https://i.postimg.cc/NFdmnLZ4/KM-NOSTALGIA-36-von-38.jpg" alt="Image 36">
+				<img src="https://i.postimg.cc/jqfVrPjm/KM-NOSTALGIA-37-von-38.jpg" alt="Image 37">
+				<img src="https://i.postimg.cc/GhPZ4RGj/KM-NOSTALGIA-38-von-38.jpg" alt="Image 38">
+				<img src="https://i.postimg.cc/kgfzyyj6/KM-NOSTALGIA-39-von-38.jpg" alt="Image 39">
+				<img src="https://i.postimg.cc/m2WvZkzD/KM-NOSTALGIA-40-von-38.jpg" alt="Image 40">
+				<img src="https://i.postimg.cc/HkpF5Nt1/KM-NOSTALGIA-41-von-38.jpg" alt="Image 41">
+				<img src="https://i.postimg.cc/HLNNqk1T/KM-NOSTALGIA-44-von-38.jpg" alt="Image 44">
+				<img src="https://i.postimg.cc/L5KbsQs7/KM-NOSTALGIA-45-von-38.jpg" alt="Image 45">
+				<img src="https://i.postimg.cc/T1VH5jLP/KM-NOSTALGIA-46-von-38.jpg" alt="Image 46">
+				<img src="https://i.postimg.cc/kXypncP1/KM-NOSTALGIA-47-von-38.jpg" alt="Image 47">
+				<img src="https://i.postimg.cc/hPnYWY6Q/KM-NOSTALGIA-48-von-38.jpg" alt="Image 48">
+				<img src="https://i.postimg.cc/bwCVnwJ1/KM-NOSTALGIA-50-von-38.jpg" alt="Image 50">
+				<img src="https://i.postimg.cc/5tX7SWYT/KM-NOSTALGIA-51-von-38.jpg" alt="Image 51">
+				<img src="https://i.postimg.cc/CK9vvrb1/KM-NOSTALGIA-52-von-38.jpg" alt="Image 52">
+				<img src="https://i.postimg.cc/26v0gdxx/KM-NOSTALGIA-53-von-38.jpg" alt="Image 53">
+				<img src="https://i.postimg.cc/RhLXZMy6/KM-NOSTALGIA-54-von-38.jpg" alt="Image 54">
+				<img src="https://i.postimg.cc/L5pxSqCF/KM-NOSTALGIA-55-von-38.jpg" alt="Image 55">
+				<img src="https://i.postimg.cc/L4tyTT59/KM-NOSTALGIA-56-von-38.jpg" alt="Image 56">
+				<img src="https://i.postimg.cc/tCmFtZ3R/KM-NOSTALGIA-57-von-38.jpg" alt="Image 57">
+			</div>
+
+        </div>
+    </div>
+
+    <!-- Fullscreen slider -->
+    <div class="slider" id="slider">
+        <button class="close">&times;</button>
+        <button class="prev">&laquo;</button>
+        <img src="" alt="Fullscreen Image">
+        <button class="next">&raquo;</button>
+    </div>
+
+    <script>
+        const cityButtons = document.querySelectorAll('.city-selection button');
+		const gallerySections = document.querySelectorAll('.gallery-section');
+		const slider = document.getElementById('slider');
+		const sliderImage = slider.querySelector('img');
+		const prevButton = slider.querySelector('.prev');
+		const nextButton = slider.querySelector('.next');
+		const closeButton = slider.querySelector('.close');
+		let currentImages = [];
+		let currentIndex = 0;
+
+		// Show gallery and highlight selected city button
+		cityButtons.forEach(button => {
+			button.addEventListener('click', () => {
+				const city = button.dataset.city;
+
+				// Remove active class from all buttons and sections
+				cityButtons.forEach(btn => btn.classList.remove('active'));
+				gallerySections.forEach(section => section.classList.remove('active'));
+
+				// Add active class to clicked button and corresponding gallery
+				button.classList.add('active');
+				const gallery = document.getElementById(`${city}-gallery`);
+				gallery.classList.add('active');
+
+				// Scroll the gallery into view
+				gallery.scrollIntoView({
+					behavior: 'smooth', // Smooth scrolling effect
+					block: 'start'     // Align to the top of the viewport
+				});
+			});
+		});
+
+		// Open slider
+		document.addEventListener('click', (event) => {
+			if (event.target.closest('.gallery img')) {
+				currentImages = [...event.target.closest('.gallery').querySelectorAll('img')];
+				currentIndex = currentImages.indexOf(event.target);
+				updateSlider();
+				slider.classList.add('active');
+			}
+		});
+
+		// Slider controls
+		prevButton.addEventListener('click', () => {
+			currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+			updateSlider();
+		});
+		nextButton.addEventListener('click', () => {
+			currentIndex = (currentIndex + 1) % currentImages.length;
+			updateSlider();
+		});
+		closeButton.addEventListener('click', () => slider.classList.remove('active'));
+
+		// Update slider image
+		function updateSlider() {
+			sliderImage.src = currentImages[currentIndex].src;
+		}
+
+    </script>
+</body>
+</html>
