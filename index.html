@@ -38,13 +38,15 @@
             line-height: 1.6;
             color: rgba(255, 255, 255, 0.7); /* Slight transparency */
         }
-        .city-selection {
-            margin-top: 30px;
-            text-align: left; /* Align content to the left */
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+
+	.city-selection {
+	    margin-top: 30px;
+	    text-align: center; /* Center align the buttons */
+	    max-width: 100%; /* Expand container width to fit all buttons */
+	    white-space: nowrap; /* Prevent wrapping of buttons to the next line */
+	    overflow-x: auto; /* Add scrolling if necessary */
+	}
+
         .city-selection button {
 	    display: inline-block; /* Inline buttons for same-line display */
 	    margin: 5px 10px 5px 0; /* Adjust spacing between buttons */
