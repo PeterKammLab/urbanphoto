@@ -1,6 +1,6 @@
 # Petar's Urban Photography
 
-![Urban Photography](./r_thumb.jpg)
+![Urban Photography](https://i.postimg.cc/ZRt5HjTt/BE2023-1-von-1.jpg)
 
 I add photos of different cities worldwide. Collections, filtered, modified.  
 I try to collect all of these and merge them here.  
