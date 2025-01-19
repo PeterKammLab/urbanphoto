@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
 <!-- Website Thumbnail -->
    <!-- <meta property="og:image" content="https://i.postimg.cc/XZLW7fGQ/BE2023-1-von-1.jpg"> -->
@@ -179,7 +180,7 @@
 </head>
 <body>
     <div class="container">
-        <img src="https://i.postimg.cc/vmSN9H0p/173712622728823577.jpg" alt="Petar Koljenšić" class="profile-picture">
+        <img src="https://i.postimg.cc/vmSN9H0p/173712622728823577.jpg" alt="Petar Koljenšić" class="profile-picture animate__animated animate__slideInDown">
         <div class="text-section">
             <h1>Petar Koljenšić</h1>
             <p>
@@ -392,8 +393,8 @@
         </p>
     </footer>
 
-	<script>
-		const cityButtons = document.querySelectorAll('.city-selection button');
+    <script>
+        const cityButtons = document.querySelectorAll('.city-selection button');
 		const gallerySections = document.querySelectorAll('.gallery-section');
 		const slider = document.getElementById('slider');
 		const sliderImage = slider.querySelector('img');
@@ -446,26 +447,11 @@
 		});
 		closeButton.addEventListener('click', () => slider.classList.remove('active'));
 
-		// Keyboard navigation
-		document.addEventListener('keydown', (event) => {
-			if (slider.classList.contains('active')) {
-				if (event.key === 'ArrowLeft') {
-					currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
-					updateSlider();
-				} else if (event.key === 'ArrowRight') {
-					currentIndex = (currentIndex + 1) % currentImages.length;
-					updateSlider();
-				} else if (event.key === 'Escape') {
-					slider.classList.remove('active');
-				}
-			}
-		});
-
 		// Update slider image
 		function updateSlider() {
 			sliderImage.src = currentImages[currentIndex].src;
 		}
-	</script>
 
+    </script>
 </body>
 </html>
