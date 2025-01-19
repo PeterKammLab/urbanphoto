@@ -392,8 +392,8 @@
         </p>
     </footer>
 
-    <script>
-        const cityButtons = document.querySelectorAll('.city-selection button');
+	<script>
+		const cityButtons = document.querySelectorAll('.city-selection button');
 		const gallerySections = document.querySelectorAll('.gallery-section');
 		const slider = document.getElementById('slider');
 		const sliderImage = slider.querySelector('img');
@@ -446,11 +446,26 @@
 		});
 		closeButton.addEventListener('click', () => slider.classList.remove('active'));
 
+		// Keyboard navigation
+		document.addEventListener('keydown', (event) => {
+			if (slider.classList.contains('active')) {
+				if (event.key === 'ArrowLeft') {
+					currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+					updateSlider();
+				} else if (event.key === 'ArrowRight') {
+					currentIndex = (currentIndex + 1) % currentImages.length;
+					updateSlider();
+				} else if (event.key === 'Escape') {
+					slider.classList.remove('active');
+				}
+			}
+		});
+
 		// Update slider image
 		function updateSlider() {
 			sliderImage.src = currentImages[currentIndex].src;
 		}
+	</script>
 
-    </script>
 </body>
 </html>
