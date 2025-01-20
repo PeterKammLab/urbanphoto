@@ -393,8 +393,8 @@
         </p>
     </footer>
 
-    <script>
-        const cityButtons = document.querySelectorAll('.city-selection button');
+	<script>
+		const cityButtons = document.querySelectorAll('.city-selection button');
 		const gallerySections = document.querySelectorAll('.gallery-section');
 		const slider = document.getElementById('slider');
 		const sliderImage = slider.querySelector('img');
@@ -438,20 +438,42 @@
 
 		// Slider controls
 		prevButton.addEventListener('click', () => {
-			currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
-			updateSlider();
+			navigateSlider(-1);
 		});
 		nextButton.addEventListener('click', () => {
-			currentIndex = (currentIndex + 1) % currentImages.length;
-			updateSlider();
+			navigateSlider(1);
 		});
-		closeButton.addEventListener('click', () => slider.classList.remove('active'));
+		closeButton.addEventListener('click', () => closeSlider());
+
+		// Close slider on escape key
+		document.addEventListener('keydown', (event) => {
+			if (slider.classList.contains('active')) {
+				if (event.key === 'ArrowLeft') {
+					navigateSlider(-1);
+				} else if (event.key === 'ArrowRight') {
+					navigateSlider(1);
+				} else if (event.key === 'Escape') {
+					closeSlider();
+				}
+			}
+		});
 
 		// Update slider image
 		function updateSlider() {
 			sliderImage.src = currentImages[currentIndex].src;
 		}
 
-    </script>
+		// Navigate slider
+		function navigateSlider(direction) {
+			currentIndex = (currentIndex + direction + currentImages.length) % currentImages.length;
+			updateSlider();
+		}
+
+		// Close slider
+		function closeSlider() {
+			slider.classList.remove('active');
+		}
+	</script>
+
 </body>
 </html>
